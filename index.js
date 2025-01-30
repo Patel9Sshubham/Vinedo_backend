@@ -5,7 +5,7 @@ const sequelize = require('./src/config/db')
 const logApiDetails = require('./src/middleware/log');
 require("dotenv").config();
 const port = process.env.PORT
-
+console.log(port)
 const authRoutes = require('./src/routes/auth');
 const profileRoutes = require('./src/routes/profile');
 const messageRoutes = require('./src/routes/message');
@@ -33,7 +33,7 @@ app.use('/api/message', messageRoutes);
 
 sequelize
   //.sync({ alter: true })
-  .sync()
+  .sync({ force: true })
   .then(() => {
     server.listen(port, ()=> {
         console.log(`server running at http://localhost:${port}`);
