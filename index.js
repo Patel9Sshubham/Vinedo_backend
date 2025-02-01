@@ -33,7 +33,7 @@ app.use('/api/message', messageRoutes);
 
 sequelize
   //.sync({ alter: true })
-  .sync({ force: true })
+  .sync()
   .then(() => {
     server.listen(port, ()=> {
         console.log(`server running at http://localhost:${port}`);
